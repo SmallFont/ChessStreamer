@@ -9,7 +9,8 @@ It mirrors the currently displayed chess.com board in a separate capturable wind
 - doesnt yet support arrows
 - doesnt yet support connection quality indicators
 
-# Installation
+# Installation 
+###### (Ctrl+Click the links)
 - Install [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) for Chrome 
 - Open the [Userscript](https://github.com/SmallFont/ChessStreamer/raw/master/chessStreamer.user.js) and click `Install` to add it to Tampermonkey
 - Download the [latest release](https://github.com/SmallFont/ChessStreamer/releases/download/v1.0.0/chess.streamer.1.0.0.exe) or build ChessStreamer from source

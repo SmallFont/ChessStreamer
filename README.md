@@ -7,6 +7,7 @@ It mirrors the currently displayed chess.com board in a separate capturable wind
 
 # Limitations
 - doesnt yet support arrows
+- doesnt yet support connection quality indicators
 
 # Installation
 - Install [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) for Chrome 

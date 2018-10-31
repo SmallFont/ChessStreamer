@@ -23,16 +23,16 @@
 
     socket.on("connect", () =>
     {
-        updateTopPlayer();
-        updateBottomPlayer();
+        updatePlayer("top");
+        updatePlayer("bottom");
     });
 
     socket.on("requestPlayers", () =>
     {
         console.log("request players");
 
-        updateTopPlayer();
-        updateBottomPlayer();
+        updatePlayer("top");
+        updatePlayer("bottom");
     });
 
     //setup observers
@@ -43,17 +43,17 @@
         attributes: true
     };
 
-    function updateTopPlayer()
+    function updatePlayer(playerDiv)
     {
         try
         {
-            var grudge = $(".board-player-top > .grudge-score-component").text();
+            var grudge = $(".board-player-" + playerDiv + " > .grudge-score-component").text();
         } catch (ex) { }
 
         try
         {
             //try arena score component
-            let arenaScoreStr = $(".board-player-top > .arena-score-component").text();
+            let arenaScoreStr = $(".board-player-" + playerDiv + " > .arena-score-component").text();
 
             let res = /(\d+)\n.+(#\d+)/.exec(arenaScoreStr);
 
@@ -66,29 +66,29 @@
 
         try
         {
-            var img = $(".board-player-top > img").attr("src");
+            var img = $(".board-player-" + playerDiv + " > img").attr("src");
         } catch (ex) { }
 
         try
         {
-            var tag = $(".board-player-top > .board-player-userTagline > .user-tagline-component > .user-tagline-title").text();
+            var tag = $(".board-player-" + playerDiv + " > .board-player-userTagline > .user-tagline-component > .user-tagline-title").text();
         } catch (ex) { }
 
         try
         {
-            var username = $(".board-player-top > .board-player-userTagline > .user-tagline-component > .user-tagline-username").text();
+            var username = $(".board-player-" + playerDiv + " > .board-player-userTagline > .user-tagline-component > .user-tagline-username").text();
         } catch (ex) { }
 
         try
         {
-            var rating = $(".board-player-top > .board-player-userTagline > .user-tagline-component > .user-tagline-rating").text();
+            var rating = $(".board-player-" + playerDiv + " > .board-player-userTagline > .user-tagline-component > .user-tagline-rating").text();
         } catch (ex) { }
 
         //flag
         let flag = "";
         try
         {
-            var classStr = $(".board-player-top > .board-player-userTagline > .user-tagline-component > .user-flag-component").attr("class");
+            var classStr = $(".board-player-" + playerDiv + " > .board-player-userTagline > .user-tagline-component > .user-flag-component").attr("class");
         } catch (ex) { }
 
         if (classStr)
@@ -101,19 +101,19 @@
         try
         {
             //color
-            var clockColor = $(".board-player-top > .clock-component").hasClass("clock-black");
+            var clockColor = $(".board-player-" + playerDiv + " > .clock-component").hasClass("clock-black");
 
             //active
-            var clockActive = $(".board-player-top > .clock-component").hasClass("clock-playerTurn");
+            var clockActive = $(".board-player-" + playerDiv + " > .clock-component").hasClass("clock-playerTurn");
 
             //time
-            var clockTime = $(".board-player-top > .clock-component > #main-clock-top").text();
+            var clockTime = $(".board-player-" + playerDiv + " > .clock-component > #main-clock-" + playerDiv + "").text();
         } catch (ex) { }
 
         //captured pieces
         try
         {
-            let container = $(".board-player-top > .board-player-userTagline > .captured-pieces");
+            let container = $(".board-player-" + playerDiv + " > .board-player-userTagline > .captured-pieces");
 
             var capturedClasses = [];
 
@@ -129,118 +129,11 @@
                 }
             }
 
-            var score = $(".board-player-top > .board-player-userTagline > .captured-pieces > .captured-pieces-score").text();
+            var score = $(".board-player-" + playerDiv + " > .board-player-userTagline > .captured-pieces > .captured-pieces-score").text();
         } catch (ex) { }
 
         //send player update
-        socket.emit("topPlayerUpdate", {
-            grudge: grudge,
-            arenaScore: arenaScore,
-            arenaRank: arenaRank,
-            src: img,
-            tag: tag,
-            username: username,
-            rating: rating,
-            flag: flag,
-            clockTime: clockTime,
-            clockActive: clockActive,
-            clockColor: clockColor,
-            captured: capturedClasses,
-            score: score
-        });
-    }
-
-
-    function updateBottomPlayer()
-    {
-        try
-        {
-            var grudge = $(".board-player-bottom > .grudge-score-component").text();
-        } catch (ex) { }
-
-        try
-        {
-            //try arena score component
-            let arenaScoreStr = $(".board-player-bottom > .arena-score-component").text();
-
-            let res = /(\d+)\n.+(#\d+)/.exec(arenaScoreStr);
-
-            if (res)
-            {
-                var arenaScore = res[1];
-                var arenaRank = res[2];
-            }
-        } catch (ex) { }
-
-        try
-        {
-            var img = $(".board-player-bottom > img").attr("src");
-        } catch (ex) { }
-
-        try
-        {
-            var tag = $(".board-player-bottom > .board-player-userTagline > .user-tagline-component > .user-tagline-title").text();
-        } catch (ex) { }
-
-        try
-        {
-            var username = $(".board-player-bottom > .board-player-userTagline > .user-tagline-component > .user-tagline-username").text();
-        } catch (ex) { }
-
-        try
-        {
-            var rating = $(".board-player-bottom > .board-player-userTagline > .user-tagline-component > .user-tagline-rating").text();
-        } catch (ex) { }
-
-        //flag
-        let flag = "";
-        try
-        {
-            var classStr = $(".board-player-bottom > .board-player-userTagline > .user-tagline-component > .user-flag-component").attr("class");
-        } catch (ex) { }
-
-        if (classStr)
-        {
-            let flagRgx = /user-flag-country-(\w+)/.exec(classStr);
-            flag = flagRgx[1];
-        }
-
-        try
-        {
-            //color
-            var clockColor = $(".board-player-bottom > .clock-component").hasClass("clock-black");
-
-            //active
-            var clockActive = $(".board-player-bottom > .clock-component").hasClass("clock-playerTurn");
-
-            //time
-            var clockTime = $(".board-player-bottom > .clock-component > #main-clock-bottom").text();
-        } catch (ex) { }
-
-        //captured pieces
-        try
-        {
-            let container = $(".board-player-bottom > .board-player-userTagline > .captured-pieces");
-
-            var capturedClasses = [];
-
-            let children = container.children();
-
-            for (let index = 0; index < children.length; index++)
-            {
-                let classes = children[index].className.split(/\s+/);
-
-                if (classes[1] != "captured-pieces-score")
-                {
-                    capturedClasses.push(classes[1]);
-                }
-            }
-
-            var score = $(".board-player-bottom > .board-player-userTagline > .captured-pieces > .captured-pieces-score").text();
-        } catch (ex) { }
-
-        //send player update
-        socket.emit("bottomPlayerUpdate", {
+        socket.emit(playerDiv + "PlayerUpdate", {
             grudge: grudge,
             arenaScore: arenaScore,
             arenaRank: arenaRank,
@@ -259,12 +152,12 @@
 
     var topObserver = new MutationObserver((function (mutations)
     {
-        updateTopPlayer();
+        updatePlayer("top");
     }));
 
     var bottomObserver = new MutationObserver((function (mutations)
     {
-        updateBottomPlayer()
+        updatePlayer("bottom");
     }));
 
     let playerTop = $(".board-player-top");
@@ -274,13 +167,13 @@
     if (playerTop.length > 0)
     {
         topObserver.observe(playerTop[0], observerConfig);
-        updateTopPlayer();
+        updatePlayer("top");
     }
 
     if (playerBottom.length > 0)
     {
         bottomObserver.observe(playerBottom[0], observerConfig);
-        updateBottomPlayer();
+        updatePlayer("bottom");
     }
 
     let mouseX = 0;
@@ -408,5 +301,4 @@
             }
         }
     }, 1000 / 60);
-
 })();

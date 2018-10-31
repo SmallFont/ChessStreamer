@@ -19,6 +19,7 @@
 {
     'use strict';
 
+    let fps = 60;
     let socket = io("http://localhost:3030");
 
     socket.on("connect", () =>
@@ -29,8 +30,6 @@
 
     socket.on("requestPlayers", () =>
     {
-        console.log("request players");
-
         updatePlayer("top");
         updatePlayer("bottom");
     });
@@ -205,10 +204,7 @@
 
         let squareSize = board.width() / 8;
 
-        //figure out orientation
-        //get player top and bottom div and check for color classes
-
-        //figure out positions and role for each piece in relative offset
+        //figure out positions and role for each piece as relative offset
         let updatePieced = [];
         for (let index = 0; index < pieces.length; index++)
         {
@@ -243,9 +239,8 @@
                 opacity: highlight.css("opacity")
             });
         }
-        //game result
 
-        //send packet
+        //send update packet
         socket.emit("update", {
             mouse: {
                 x: mouseX / board.width(),
@@ -282,7 +277,7 @@
                 {
                     gameOverSubtitle = $(".game-over-dialog-component > .game-over-dialog-body > p").text();
 
-                    //draw
+                    //draw or abort
                     socket.emit("gameOver", {
                         title: gameOverTitle,
                         subtitleBold: "",
@@ -300,5 +295,5 @@
                 socket.emit("gameStart");
             }
         }
-    }, 1000 / 60);
+    }, 1000 / fps);
 })();

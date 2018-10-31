@@ -1,0 +1,505 @@
+.background
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #312e2b;
+  width: 100%;
+  height: 100%;
+}
+
+.boardContainer
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.gameOverContainer
+{  
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+
+  margin: auto;
+  width: 400px;
+  height: 100px;
+  z-index: 99;
+
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+.gameOverBody
+{
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+.gameOverTitle
+{
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  color: #26211b;
+    
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.gameOverSubtitle
+{
+  color: #312e2b;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+    
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.top
+{
+  display: flex;
+  height: 40px;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bottom
+{
+  display: flex;
+  height: 40px;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.grudge
+{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  background: rgba(0,0,0,.2);
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.arenaScoreContainer
+{
+  display: flex;
+  line-height: unset;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.arenaRank
+{
+  position: relative;
+  bottom: 3px;
+  left: 0;
+  width: 40px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,.65);
+}
+
+.verticalStack
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontalStack
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.alignBottom
+{
+  align-items: flex-end;
+}
+
+.alignTop
+{
+  align-items: flex-start;
+}
+
+.capturedContainer
+{
+  height: 20px;
+  margin-top: 2px;
+  margin-left: 5px;
+}
+
+.tagline
+{
+  margin-left: 5px;
+  max-height: 18px;
+  padding: 1px 4px;
+  background-color: #b33430;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 11px;
+  color: #fff!important;
+  line-height: 15px;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.username
+{
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size:14px;
+  font-weight:600;
+  margin-left: 5px;
+
+  color: #fff;
+  text-shadow: 1px 1px #312e2b;
+    -webkit-font-smoothing: antialiased;
+}
+
+.rating
+{
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size:14px;
+  font-weight:600;
+
+  text-shadow: 1px 1px #312e2b;
+    -webkit-font-smoothing: antialiased;
+
+  font-weight: 500;
+  color: rgba(255,255,255,.4);
+
+  margin-left: 10px;
+}
+
+.flag
+{
+  margin-left: 10px;
+}
+
+.score
+{
+  background-color: transparent;
+  background-image: none;
+  color: #8c8a88;
+  line-height: 1.5;
+  margin-left: 2px;
+  padding: 0;
+  vertical-align: top;
+
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size: 14px;
+
+  color: rgba(255,255,255,.5);
+  text-shadow: 1px 1px #312e2b;
+  -webkit-font-smoothing: antialiased;
+}
+
+.flexPad
+{
+  flex: 1;
+}
+
+.clockIcon
+{
+  width: 20px;
+  height: 20px;
+  
+  background: url(../../../assets/clockWhite.png) 0% 0% / 100% 100% no-repeat;
+}
+
+.clockIcon.black
+{
+  background: url(../../../assets/clockBlack.png) 0% 0% / 100% 100% no-repeat;
+}
+
+.clockContainer
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.clock
+{
+  color:#26211b;
+  background-color: #fff;
+  width: 196px;
+  height: 40px;
+  line-height: 38px;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: right;
+  border-radius: 3px;
+  font-size: 22px;
+  font-weight: 600;
+  opacity: .5;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.clock.black
+{
+  color:rgb(255, 255, 255);
+  background-color: #26211b;
+}
+
+.clock.active
+{
+  opacity: 1;
+}
+
+.board
+{
+  position: relative;
+  background: url(../../../assets/76.jpg) 0% 0% / 100% 100% no-repeat;
+  border-radius: 3px;
+  width: 800px;
+  height: 800px;
+}
+
+.mouse
+{
+  position: absolute;
+  background: url(../../../assets/cursor.png) 0% 0% / 100% 100% no-repeat;
+  width: 100px;
+  height: 100px;
+  z-index: 100;
+}
+
+.mouse.grab
+{
+  background: url(../../../assets/grab.png) 0% 0% / 100% 100% no-repeat;
+}
+
+.mouse.grabbing
+{
+  background: url(../../../assets/grabbing.png) 0% 0% / 100% 100% no-repeat;
+}
+
+.piece 
+{
+  position: absolute;
+  z-index: 2;
+  width: 12.5%;
+  height: 12.5%;
+}
+
+.piece.dragging
+{
+  z-index: 3;
+}
+
+.highlight
+{
+  position: absolute;
+  z-index: 1;
+  width: 12.5%;
+  height: 12.5%;
+  background: black;
+}
+
+/* coordinates */
+.coordinates
+{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.coord
+{
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size:20px;
+  font-weight:600;
+
+  text-shadow: 1px 1px #312e2b;
+    -webkit-font-smoothing: antialiased;
+
+    font-weight: 500;
+  color: rgba(255,255,255,.5);
+}
+
+.coord-l
+{
+  display: flex;
+  position: absolute;
+  height: 12.5%;
+  flex-direction: column;
+  justify-content: center;
+  transform: translate(-25.5px, 0);
+}
+
+.coord-b
+{
+  display: flex;
+  position: absolute;
+  width: 12.5%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.coord-l-1
+{
+    top: 0%;
+}
+
+.coord-l-2
+{
+    top: calc(12.5% * 1);
+}
+
+.coord-l-3
+{
+  top: calc(12.5% * 2);
+}
+
+.coord-l-4
+{
+  top: calc(12.5% * 3);
+}
+
+.coord-l-5
+{
+  top: calc(12.5% * 4);
+}
+
+.coord-l-6
+{
+  top: calc(12.5% * 5);
+}
+
+.coord-l-7
+{
+  top: calc(12.5% * 6);
+}
+
+.coord-l-8
+{
+  top: calc(12.5% * 7);
+}
+
+.coord-b-1
+{
+    top: 100%;
+    left: 0%;
+}
+
+.coord-b-2
+{
+  top: 100%;
+  left: calc(12.5% * 1);
+}
+
+.coord-b-3
+{
+  top: 100%;
+  left: calc(12.5% * 2);
+}
+
+.coord-b-4
+{
+  top: 100%;
+  left: calc(12.5% * 3);
+}
+
+.coord-b-5
+{
+  top: 100%;
+  left: calc(12.5% * 4);
+}
+
+.coord-b-6
+{
+  top: 100%;
+  left: calc(12.5% * 5);
+}
+
+.coord-b-7
+{
+  top: 100%;
+  left: calc(12.5% * 6);
+}
+
+.coord-b-8
+{
+  top: 100%;
+  left: calc(12.5% * 7);
+}
+
+/* white */
+.wr
+{
+  background: url(../../../assets/wr.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.wn
+{
+  background: url(../../../assets/wn.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.wb
+{
+  background: url(../../../assets/wb.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.wq
+{
+  background: url(../../../assets/wq.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.wk
+{
+  background: url(../../../assets/wk.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.wp
+{
+  background: url(../../../assets/wp.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+/* black */
+.br
+{
+  background: url(../../../assets/br.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.bn
+{
+  background: url(../../../assets/bn.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.bb
+{
+  background: url(../../../assets/bb.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.bq
+{
+  background: url(../../../assets/bq.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.bk
+{
+  background: url(../../../assets/bk.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.bp
+{
+  background: url(../../../assets/bp.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+
+.captured-pieces-captured-pieces{display:block;}.captured-pieces-vertical span{display:block;margin-bottom:5px;}.captured-pieces-hidden{display:none;}.captured-pieces-cpiece{display:inline-block;background-image:url(../../../assets/captured-pieces.webp);background-repeat:no-repeat;margin-right:3px;}.captured-pieces-score{background-color:transparent;background-image:none;color:#8c8a88;line-height:1.5;margin-left:2px;padding:0;vertical-align:top;}.captured-pieces-b-pawn,.captured-pieces-w-pawn{height:17px;width:13px;}.captured-pieces-b-pawn{background-position:0 -594px;}.captured-pieces-w-pawn{background-position:-360px -594px;}.captured-pieces-b-2-pawns,.captured-pieces-w-2-pawns{height:17px;width:20px;}.captured-pieces-b-2-pawns{background-position:0 -569px;}.captured-pieces-w-2-pawns{background-position:-360px -569px;}.captured-pieces-b-3-pawns,.captured-pieces-w-3-pawns{height:17px;width:27px;}.captured-pieces-b-3-pawns{background-position:0 -544px;}.captured-pieces-w-3-pawns{background-position:-360px -544px;}.captured-pieces-b-4-pawns,.captured-pieces-w-4-pawns{height:17px;width:34px;}.captured-pieces-b-4-pawns{background-position:0 -519px;}.captured-pieces-w-4-pawns{background-position:-360px -519px;}.captured-pieces-b-5-pawns,.captured-pieces-w-5-pawns{height:17px;width:41px;}.captured-pieces-b-5-pawns{background-position:0 -494px;}.captured-pieces-w-5-pawns{background-position:-360px -494px;}.captured-pieces-b-6-pawns,.captured-pieces-w-6-pawns{height:17px;width:48px;}.captured-pieces-b-6-pawns{background-position:0 -469px;}.captured-pieces-w-6-pawns{background-position:-360px -469px;}.captured-pieces-b-7-pawns,.captured-pieces-w-7-pawns{height:17px;width:55px;}.captured-pieces-b-7-pawns{background-position:0 -444px;}.captured-pieces-w-7-pawns{background-position:-360px -444px;}.captured-pieces-b-8-pawns,.captured-pieces-w-8-pawns{height:17px;width:62px;}.captured-pieces-b-8-pawns{background-position:0 -419px;}.captured-pieces-w-8-pawns{background-position:-360px -419px;}.captured-pieces-b-bishop,.captured-pieces-w-bishop{height:18px;width:15px;}.captured-pieces-b-bishop{background-position:-67px -443px;}.captured-pieces-w-bishop{background-position:-427px -443px;}.captured-pieces-b-2-bishops,.captured-pieces-w-2-bishops{height:19px;width:23px;}.captured-pieces-b-2-bishops{background-position:-67px -417px;}.captured-pieces-w-2-bishops{background-position:-427px -417px;}.captured-pieces-b-knight,.captured-pieces-w-knight{height:19px;width:16px;}.captured-pieces-b-knight{background-position:-95px -442px;}.captured-pieces-w-knight{background-position:-454px -442px;}.captured-pieces-b-2-knights,.captured-pieces-w-2-knights{height:19px;width:23px;}.captured-pieces-b-2-knights{background-position:-95px -417px;}.captured-pieces-w-2-knights{background-position:-454px -417px;}.captured-pieces-b-rook,.captured-pieces-w-rook{height:17px;width:15px;}.captured-pieces-b-rook{background-position:-120px -444px;}.captured-pieces-w-rook{background-position:-480px -444px;}.captured-pieces-b-2-rooks,.captured-pieces-w-2-rooks{height:17px;width:23px;}.captured-pieces-b-2-rooks{background-position:-120px -419px;}.captured-pieces-w-2-rooks{background-position:-480px -419px;}.captured-pieces-b-queen,.captured-pieces-w-queen{height:19px;width:18px;}.captured-pieces-b-queen{background-position:-145px -417px;}.captured-pieces-w-queen{background-position:-504px -417px;}@media (-webkit-min-device-pixel-ratio:2),all and (min--moz-device-pixel-ratio:2),all and (min-resolution:2dppx),all and (min-resolution:192dpi){.captured-pieces-cpiece{background-size:342px 306px;}.captured-pieces-b-pawn{background-position:0 -176px;}.captured-pieces-w-pawn{background-position:-180px -176px;}.captured-pieces-b-2-pawns{background-position:0 -151px;}.captured-pieces-w-2-pawns{background-position:-180px -151px;}.captured-pieces-b-3-pawns{background-position:0 -126px;}.captured-pieces-w-3-pawns{background-position:-180px -126px;}.captured-pieces-b-4-pawns{background-position:0 -101px;}.captured-pieces-w-4-pawns{background-position:-180px -101px;}.captured-pieces-b-5-pawns{background-position:0 -76px;}.captured-pieces-w-5-pawns{background-position:-180px -76px;}.captured-pieces-b-6-pawns{background-position:0 -51px;}.captured-pieces-w-6-pawns{background-position:-180px -51px;}.captured-pieces-b-7-pawns{background-position:0 -26px;}.captured-pieces-w-7-pawns{background-position:-180px -26px;}.captured-pieces-b-8-pawns{background-position:0 -1px;}.captured-pieces-w-8-pawns{background-position:-180px -1px;}.captured-pieces-b-bishop{background-position:-67px -25px;}.captured-pieces-w-bishop{background-position:-247px -25px;}.captured-pieces-b-2-bishops{background-position:-67px 1px;}.captured-pieces-w-2-bishops{background-position:-247px 1px;}.captured-pieces-b-knight{background-position:-95px -24px;}.captured-pieces-w-knight{background-position:-275px -24px;}.captured-pieces-b-2-knights{background-position:-95px 1px;}.captured-pieces-w-2-knights{background-position:-275px 1px;}.captured-pieces-b-rook{background-position:-121px -26px;}.captured-pieces-w-rook{background-position:-301px -26px;}.captured-pieces-b-2-rooks{background-position:-120px -1px;}.captured-pieces-w-2-rooks{background-position:-300px -1px;}.captured-pieces-b-queen{background-position:-145px 1px;}.captured-pieces-w-queen{background-position:-325px 1px;}}

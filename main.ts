@@ -28,30 +28,42 @@ io.on("connection", (sock) =>
 
   sock.on("update", (update) =>
   {
-    //send update to renderer
-    win.webContents.send("update", update);
+    if (win)
+    {
+      win.webContents.send("update", update);
+    }
   });
 
   sock.on("gameOver", (gameOver) =>
   {
-    //send update to renderer
-    win.webContents.send("gameOver", gameOver);
+    if (win)
+    {
+      win.webContents.send("gameOver", gameOver);
+    }
   });
 
   sock.on("gameStart", () =>
   {
-    //send update to renderer
-    win.webContents.send("gameStart");
+    if (win)
+    {
+      win.webContents.send("gameStart");
+    }
   });
 
   sock.on("topPlayerUpdate", (update) =>
   {
-    win.webContents.send("topUpdate", update);
+    if (win)
+    {
+      win.webContents.send("topUpdate", update);
+    }
   });
 
   sock.on("bottomPlayerUpdate", (update) =>
   {
-    win.webContents.send("bottomUpdate", update);
+    if (win)
+    {
+      win.webContents.send("bottomUpdate", update);
+    }
   });
 });
 

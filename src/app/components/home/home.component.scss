@@ -281,12 +281,17 @@
 
 .board.wood
 {
-  background: url(../../../assets/76.jpg) 0% 0% / 100% 100% no-repeat;
+  background: url(../../../assets/wood.jpg) 0% 0% / 100% 100% no-repeat;
 }
 
-.board.default
+.board.green
 {
-  background: url(../../../assets/76.webp) 0% 0% / 100% 100% no-repeat;
+  background: url(../../../assets/green.webp) 0% 0% / 100% 100% no-repeat;
+}
+
+.board.brown
+{
+  background: url(../../../assets/brown.png) 0% 0% / 100% 100% no-repeat;
 }
 
 .mouse

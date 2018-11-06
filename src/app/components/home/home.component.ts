@@ -65,9 +65,13 @@ export class HomeComponent implements OnInit
   {
     if (event.key == "1")
     {
-      this.boardClass = "default";
+      this.boardClass = "brown";
     }
     else if (event.key == "2")
+    {
+      this.boardClass = "green";
+    }
+    else if (event.key == "3")
     {
       this.boardClass = "wood";
     }

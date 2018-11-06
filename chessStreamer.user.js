@@ -240,6 +240,84 @@
             });
         }
 
+        //arrows
+        let updateArrows = [];
+        let arrows = board.children("svg.arrow-container");
+        for (let index = 0; index < arrows.length; index++)
+        {
+            let arrow = $(arrows[index]);
+            let poly = $(arrow.children("polygon"));
+
+            let points = poly.attr("points");
+
+            function getPX(val)
+            {
+                return /([\d\.]+)(?:px)?/.exec(val)[1];
+            }
+
+            let width = getPX(arrow.attr("width")) / board.width();
+            let height = getPX(arrow.attr("height")) / board.height();
+
+            let viewbox = arrow.attr("viewBox");
+
+            //parse and convert style
+            let style = arrow.attr("style");
+            let polyTransform = poly.attr("transform");
+
+            let arrowStyleRes = /transform: translate\(([\d\.]+)(?:px)?, ([\d\.]+)(?:px)?\) rotate\(([\w-]+)\) scale\(([\w-]+), ([\w-]+)\); transform-origin: ([\w%]+) ([\w%]+) ([\w]+)(?:px)?;/.exec(style);
+
+            //translate
+            let tx = arrowStyleRes[1] / board.width();
+            let ty = arrowStyleRes[2] / board.height();
+
+            //rotate
+            let r = arrowStyleRes[3];
+
+            //scale
+            let sx = arrowStyleRes[4];
+            let sy = arrowStyleRes[5];
+
+            //transform-origin
+            let tox = arrowStyleRes[6];
+            let toy = arrowStyleRes[7];
+            let toz = arrowStyleRes[8];
+
+            //polygon transform
+            let pt = polyTransform;
+
+            //fill
+
+            // //parse points
+            // let pairs = [];
+            // let pair = null;
+            // let rgx = /(\d+) (\d+)/g;
+            // while (pair = rgx.exec(points))
+            // {
+            //     let x = pair[1];
+            //     let y = pair[2];
+
+            //     pairs.push({ x: x, y: y });
+            // }
+
+            // updateArrows.push(pairs);
+
+            updateArrows.push({
+                width: width,
+                height: height,
+                viewbox: viewbox,
+                points: points,
+                tx: tx,
+                ty: ty,
+                r: r,
+                sx: sx,
+                sy: sy,
+                tox: tox,
+                toy: toy,
+                toz: toz,
+                pt: pt
+            });
+        }
+
         //send update packet
         socket.emit("update", {
             mouse: {
@@ -248,7 +326,8 @@
                 mouseCursor: mouseCursor
             },
             pieces: updatePieced,
-            highlights: updateHighlights
+            highlights: updateHighlights,
+            arrows: updateArrows
         });
 
         //check for game over
@@ -263,7 +342,7 @@
                 let gameOverTitle = $(".game-over-dialog-component > .game-over-dialog-body > h3").text();
                 let gameOverSubtitle = $(".game-over-dialog-component > .game-over-dialog-body > p").html();
 
-                let res = /<strong>([\w\s]+)<\/strong>([\w\s]+)/.exec(gameOverSubtitle);
+                let res = /<strong>([\w\s-]+)<\/strong>([\w\s-]+)/.exec(gameOverSubtitle);
 
                 if (res)
                 {

@@ -6,6 +6,7 @@ This utility allows chess.com streamers to play on any board size and theme with
 It mirrors the currently displayed chess.com board in a separate capturable window without loss of quality due to scaling.
 
 # Limitations
+- requires the new beta board
 - doesnt yet support connection quality indicators
 
 # Installation 

@@ -17,8 +17,9 @@ It mirrors the currently displayed chess.com board in a separate capturable wind
 - open [Chess.com](https://chess.com/live) and run `chess streamer 1.0.0.exe` 
 
 # Build From Source
+- prerequisites (Node >= v10.13.0)
 - download or clone the repository
-- open the repository folder in vscode 
+- open `cmd` in the directory
 - run `npm install` to install dependencies
-- run `npm run electron:windows` to build for windows 
+- run `npm run electron:windows` to build for Windows
 - the executable will be built in `ChessStreamer/release/chess streamer 1.0.0.exe`

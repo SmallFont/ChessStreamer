@@ -34,14 +34,6 @@
         updatePlayer("bottom");
     });
 
-    //setup observers
-    //observe the user containers for changes
-    var observerConfig = {
-        childList: true,
-        subtree: true,
-        attributes: true
-    };
-
     function updatePlayer(playerDiv)
     {
         try
@@ -149,31 +141,44 @@
         });
     }
 
-    var topObserver = new MutationObserver((function (mutations)
+    function setupObservers()
     {
-        updatePlayer("top");
-    }));
+        //setup observers
+        //observe the user containers for changes
+        var observerConfig = {
+            childList: true,
+            subtree: true,
+            attributes: true
+        };
 
-    var bottomObserver = new MutationObserver((function (mutations)
-    {
-        updatePlayer("bottom");
-    }));
+        var topObserver = new MutationObserver((function (mutations)
+        {
+            updatePlayer("top");
+        }));
 
-    let playerTop = $(".board-player-top");
-    let playerBottom = $(".board-player-bottom");
+        var bottomObserver = new MutationObserver((function (mutations)
+        {
+            updatePlayer("bottom");
+        }));
 
-    //player stats
-    if (playerTop.length > 0)
-    {
-        topObserver.observe(playerTop[0], observerConfig);
-        updatePlayer("top");
+        let playerTop = $(".board-player-top");
+        let playerBottom = $(".board-player-bottom");
+
+        //player stats
+        if (playerTop.length > 0)
+        {
+            topObserver.observe(playerTop[0], observerConfig);
+            updatePlayer("top");
+        }
+
+        if (playerBottom.length > 0)
+        {
+            bottomObserver.observe(playerBottom[0], observerConfig);
+            updatePlayer("bottom");
+        }
     }
 
-    if (playerBottom.length > 0)
-    {
-        bottomObserver.observe(playerBottom[0], observerConfig);
-        updatePlayer("bottom");
-    }
+    setTimeout(setupObservers, 2000);
 
     let mouseX = 0;
     let mouseY = 0;
@@ -181,21 +186,20 @@
 
     let board = $(".board");
     let gameActive = true;
-    let mouseCaptured = false;
+    let currentBoard = null;
 
     setInterval(function ()
     {
         board = $(".board");
 
-        if (!mouseCaptured && board.length)
+        if (board.length && currentBoard != board[0])
         {
-            mouseCaptured = true;
+            currentBoard = board[0];
 
             board.mousemove(function (event)
             {
                 mouseX = (event.pageX - board.offset().left);
                 mouseY = (event.pageY - board.offset().top);
-
                 mouseCursor = $(event.target).css("cursor");
             });
         }

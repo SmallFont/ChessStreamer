@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         1.0.0
+// @version         1.1.0
 // @name            ChessStreamer
 // @author SmallFonts
 // @namespace       https://github.com/SmallFont
@@ -8,7 +8,8 @@
 // @icon            https://raw.githubusercontent.com/SmallFont/ChessStreamer/master/doc/icon.png
 // @match           *://www.chess.com/live
 // @run-at          document-end
-// @downloadURL     https://github.com/SmallFont/ChessStreamer/raw/master/src/chessStreamer.user.js
+// @downloadURL     https://github.com/SmallFont/ChessStreamer/raw/master/chessStreamer.user.js
+// @updateURL       https://github.com/SmallFont/ChessStreamer/raw/master/chessStreamer.user.js
 // @homepageURL     https://github.com/SmallFont/ChessStreamer
 // @require         http://code.jquery.com/jquery-3.3.1.min.js
 // @require         https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js

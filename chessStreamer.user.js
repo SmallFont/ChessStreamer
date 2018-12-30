@@ -268,7 +268,7 @@
             let style = arrow.attr("style");
             let polyTransform = poly.attr("transform");
 
-            let arrowStyleRes = /transform: translate\(([\d\.]+)(?:px)?, ([\d\.]+)(?:px)?\) rotate\(([\w-]+)\) scale\(([\w-]+), ([\w-]+)\); transform-origin: ([\w%]+) ([\w%]+) ([\w]+)(?:px)?;/.exec(style);
+            let arrowStyleRes = /transform: translate\(([\d\.-]+)(?:px)?, ([\d\.-]+)(?:px)?\) rotate\(([\w-]+)\) scale\(([\w-]+), ([\w-]+)\); transform-origin: ([\w%]+) ([\w%]+) ([\w]+)(?:px)?;/.exec(style);
 
             //translate
             let tx = arrowStyleRes[1] / board.width();

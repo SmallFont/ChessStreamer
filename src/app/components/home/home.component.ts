@@ -103,7 +103,7 @@ export class HomeComponent implements OnInit
           arrow.style = this.sanitizer.bypassSecurityTrustStyle(arrow.style);
         });
 
-        console.log(this.arrows);
+        //console.log(this.arrows);
       }
     });
 

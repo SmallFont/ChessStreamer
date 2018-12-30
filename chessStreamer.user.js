@@ -79,12 +79,12 @@
         let flag = "";
         try
         {
-            var classStr = $(".board-player-" + playerDiv + " > .board-player-userTagline > .user-tagline-component > .user-flag-component").attr("class");
+            var classStr = $(".board-player-" + playerDiv + " > .board-player-userTagline > .user-tagline-component > .country-flags-component").attr("class");
         } catch (ex) { }
 
         if (classStr)
         {
-            let flagRgx = /user-flag-country-(\w+)/.exec(classStr);
+            let flagRgx = /\scountry-(\w+)/.exec(classStr);
             flag = flagRgx[1];
         }
 

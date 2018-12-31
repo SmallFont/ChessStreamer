@@ -25,15 +25,15 @@
 
     socket.on("connect", () =>
     {
-        updatePlayer("top");
-        updatePlayer("bottom");
+        // updatePlayer("top");
+        // updatePlayer("bottom");
     });
 
-    socket.on("requestPlayers", () =>
-    {
-        updatePlayer("top");
-        updatePlayer("bottom");
-    });
+    // socket.on("requestPlayers", () =>
+    // {
+    //     updatePlayer("top");
+    //     updatePlayer("bottom");
+    // });
 
     function updatePlayer(playerDiv)
     {
@@ -142,45 +142,6 @@
         });
     }
 
-    function setupObservers()
-    {
-        //setup observers
-        //observe the user containers for changes
-        var observerConfig = {
-            childList: true,
-            subtree: true,
-            attributes: true
-        };
-
-        var topObserver = new MutationObserver((function (mutations)
-        {
-            updatePlayer("top");
-        }));
-
-        var bottomObserver = new MutationObserver((function (mutations)
-        {
-            updatePlayer("bottom");
-        }));
-
-        let playerTop = $(".board-player-top");
-        let playerBottom = $(".board-player-bottom");
-
-        //player stats
-        if (playerTop.length > 0)
-        {
-            topObserver.observe(playerTop[0], observerConfig);
-            updatePlayer("top");
-        }
-
-        if (playerBottom.length > 0)
-        {
-            bottomObserver.observe(playerBottom[0], observerConfig);
-            updatePlayer("bottom");
-        }
-    }
-
-    setTimeout(setupObservers, 2000);
-
     let mouseX = 0;
     let mouseY = 0;
     let mouseCursor = "";
@@ -193,6 +154,11 @@
     {
         board = $(".board");
 
+        //update players
+        updatePlayer("top");
+        updatePlayer("bottom");
+
+        //update board
         if (board.length && currentBoard != board[0])
         {
             currentBoard = board[0];

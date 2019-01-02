@@ -7,6 +7,7 @@
 // @compatible      chrome
 // @icon            https://raw.githubusercontent.com/SmallFont/ChessStreamer/master/doc/icon.png
 // @match           *://www.chess.com/live
+// @match           *://www.chess.com/puzzles/rush
 // @run-at          document-end
 // @downloadURL     https://github.com/SmallFont/ChessStreamer/raw/master/chessStreamer.user.js
 // @updateURL       https://github.com/SmallFont/ChessStreamer/raw/master/chessStreamer.user.js
